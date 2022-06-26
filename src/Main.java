@@ -77,30 +77,30 @@ public class Main {
         char [] symbls = number.toUpperCase().toCharArray();
         for (int i = 0; i < symbls.length; i++) {
             switch (symbls[i]) {
-                case 'M':
+                case 'M' -> {
                     checkFiveNumbers(symbls, i);
                     if ((i + 1) < symbls.length && symbls[i] != 'M'
-                        && symbls[i] != 'D' && symbls[i] != 'C' && symbls[i] != 'L'
-                        && symbls[i] != 'X' && symbls[i] != 'V' && symbls[i] != 'I'){
+                            && symbls[i] != 'D' && symbls[i] != 'C' && symbls[i] != 'L'
+                            && symbls[i] != 'X' && symbls[i] != 'V' && symbls[i] != 'I') {
                         throw new RuntimeException("такое число не существует");
                     }
                     result += 1000;
-                    break;
-                case 'D':
+                }
+                case 'D' -> {
                     if ((i + 1) < symbls.length && symbls[i] != 'C' && symbls[i] != 'L'
-                            && symbls[i] != 'X' && symbls[i] != 'V' && symbls[i] != 'I'){
+                            && symbls[i] != 'X' && symbls[i] != 'V' && symbls[i] != 'I') {
                         throw new RuntimeException("такое число не существует");
                     }
                     result += 500;
-                    break;
-                case 'C':
+                }
+                case 'C' -> {
                     checkFiveNumbers(symbls, i);
                     if ((i + 1) < symbls.length) {
                         if (symbls[i] != 'C' && symbls[i] != 'L' && symbls[i] != 'X'
-                                && symbls[i] != 'V' && symbls[i] != 'I'){
+                                && symbls[i] != 'V' && symbls[i] != 'I') {
                             throw new RuntimeException("такое число не существует");
                         }
-                        if ('D' == symbls[i + 1] || 'M' == symbls[i + 1]){
+                        if ('D' == symbls[i + 1] || 'M' == symbls[i + 1]) {
                             result -= 100;
                         } else {
                             result += 100;
@@ -108,42 +108,41 @@ public class Main {
                     } else {
                         result += 100;
                     }
-                    break;
-                case 'L':
-                    if ((i + 1) < symbls.length && symbls[i] != 'X' && symbls[i] != 'V' && symbls[i] != 'I'){
+                }
+                case 'L' -> {
+                    if ((i + 1) < symbls.length && symbls[i] != 'X' && symbls[i] != 'V' && symbls[i] != 'I') {
                         throw new RuntimeException("такое число не существует");
                     }
                     result += 50;
-                    break;
-                case 'X':
+                }
+                case 'X' -> {
                     checkFiveNumbers(symbls, i);
-                    if ((i + 1) < symbls.length){
-                        if (symbls[i] != 'X' && symbls[i] != 'V' && symbls[i] != 'I'){
+                    if ((i + 1) < symbls.length) {
+                        if (symbls[i] != 'X' && symbls[i] != 'V' && symbls[i] != 'I') {
                             throw new RuntimeException("такое число не существует");
                         }
                         if ('C' == symbls[i + 1] || 'L' == symbls[i + 1]) {
-                        result -= 10;
-                    } else {
+                            result -= 10;
+                        } else {
                             result += 10;
                         }
-                }
-                     else {
+                    } else {
                         result += 10;
                     }
-                    break;
-                case 'V':
-                    if ((i + 1) < symbls.length && symbls[i + 1] != 'I'){
+                }
+                case 'V' -> {
+                    if ((i + 1) < symbls.length && symbls[i + 1] != 'I') {
                         throw new RuntimeException("такое число не существует");
                     }
                     result += 5;
-                    break;
-                case 'I':
+                }
+                case 'I' -> {
                     checkFiveNumbers(symbls, i);
                     if ((i + 1) < symbls.length) {
-                        if (symbls[i] != 'I'){
+                        if (symbls[i] != 'I') {
                             throw new RuntimeException("такое число не существует");
                         }
-                        if ('X' == symbls[i + 1] || 'V' == symbls[i + 1]){
+                        if ('X' == symbls[i + 1] || 'V' == symbls[i + 1]) {
                             result -= 1;
                         } else {
                             result += 1;
@@ -151,8 +150,8 @@ public class Main {
                     } else {
                         result += 1;
                     }
-                    break;
-                default: throw new RuntimeException("такое число не существует");
+                }
+                default -> throw new RuntimeException("такое число не существует");
             }
         }
 
