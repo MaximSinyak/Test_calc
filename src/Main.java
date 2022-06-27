@@ -101,6 +101,9 @@ public class Main {
                             throw new RuntimeException("такое число не существует");
                         }
                         if ('D' == symbls[i + 1] || 'M' == symbls[i + 1]) {
+                            if ((i + 2) < symbls.length && symbls[i + 2] == 'C'){
+                                throw new RuntimeException("такое число не существует");
+                            }
                             result -= 100;
                         } else {
                             result += 100;
@@ -122,6 +125,9 @@ public class Main {
                             throw new RuntimeException("такое число не существует");
                         }
                         if ('C' == symbls[i + 1] || 'L' == symbls[i + 1]) {
+                            if ((i + 2) < symbls.length && symbls[i + 2] == 'X'){
+                                throw new RuntimeException("такое число не существует");
+                            }
                             result -= 10;
                         } else {
                             result += 10;
@@ -143,6 +149,9 @@ public class Main {
                             throw new RuntimeException("такое число не существует");
                         }
                         if ('X' == symbls[i + 1] || 'V' == symbls[i + 1]) {
+                            if ((i + 2) < symbls.length && symbls[i + 2] == 'I'){
+                                throw new RuntimeException("такое число не существует");
+                            }
                             result -= 1;
                         } else {
                             result += 1;
